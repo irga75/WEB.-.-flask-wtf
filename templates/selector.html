@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Анкета претендента</h2>
+<h4>на участие в миссии</h4>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+
+    {% for field in [form.name, form.surname, form.email] %}
+        <p>
+        {{ field.label }}<br>
+        {{ field(class="form-control") }}<br>
+        {% for error in field.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    {% endfor %}
+
+    <p>{{ form.education.label }}<br>{{ form.education() }}</p>
+    <p>{{ form.prof.label }}<br>{{ form.prof(class="form-control", size=16) }}</p>
+    <p>{{ form.sex.label }} {{ form.sex(style="list-style-type:  none;") }}</p>
+    <p>{{ form.motivation.label }}</p>
+    <p>{{ form.motivation(class="form-control", id="about", rows="3") }}</p>
+
+    <p>{{ form.agree() }} {{ form.agree.label }}</p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+</form>
+{% endblock %}

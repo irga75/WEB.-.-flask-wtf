@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% set one_dict = {'surname': 'Фамилия:', 'name': 'Имя:', 'email': 'Адрес почты:',
+    'education': 'Образование:', 'prof': 'Профессии:', 'sex': 'Пол:', 'motivation': 'Мотивация:',
+    'agree': 'Готовы остаться на Марссе?'} %}
+    {% for key, value in data.items() %}
+        <p>{{ one_dict[key] }} {{ value }}</p>
+    {% endfor %}
+
+{% endblock %}
