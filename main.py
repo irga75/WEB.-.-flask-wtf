@@ -64,5 +64,13 @@ def return_login_succeed():
     return render_template('login_succeed.html', title='Секретные данные')
 
 
+@app.route('/distribution')
+def distribute():
+    # Список здесь
+    dist_list = ['Ридли Скотт', 'Энди Уир', 'Марк Уотни', 'Майкл Фарадей',
+                 'Тедди Сандерс', 'Шон Бин', 'Венката Капур']
+    return render_template('distribution.html', dist_list=dist_list, title='Каютное распределение')
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
