@@ -1,20 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Оформление каюты</h2>
-<table class="table table-bordered">
+<h2 style="text-align: center;">Оформление каюты</h2>
+<table class="table table-bordered" id="marstable">
     <thead>
         <tr>
-            <th scope="col">Цвет стен</th>
+            <th scope="col" style="width: 50%;">Цвет стен</th>
             <th scope="col">Эмблема</th>
         </tr>
     <thead>
     <tbody>
         <tr>
-            <td><div class="box blue"></div></td>
-            <td>bbb</td>
+            {% if age < 21 %}
+                {% if sex == "male" %}
+                    <td class="child_male"></td>
+                {% elif sex == "female" %}
+                    <td class="child_female"></td>
+                {% else %}
+                    <td>Error</td>
+                {% endif %}
+                <td><img src="/static/img/child_martian.png"></td>
+            {% else %}
+                {% if sex == "male" %}
+                    <td class="adult_male"></td>
+                {% elif sex == "female" %}
+                    <td class="adult_female"></td>
+                {% else %}
+                    <td>Error</td>
+                {% endif %}
+                <td><img src="/static/img/adult_martian.png"></td>
+            {% endif %}
         </tr>
     </tbody>
 </table>
-
 {% endblock %}

@@ -74,7 +74,7 @@ def distribute():
 
 @app.route('/table/<sex>/<age>')
 def return_table(sex, age):
-    return render_template('table.html', sex=sex, age=age, title='Оформление кают')
+    return render_template('table.html', sex=sex, age=int(age), title='Оформление кают')
 
 
 if __name__ == '__main__':
