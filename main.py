@@ -1,4 +1,5 @@
 import json
+import random
 
 from flask import Flask, render_template, redirect
 
@@ -57,6 +58,14 @@ def return_select_answer():
         data.pop('submit')
         data['prof'] = ', '.join(data['prof'])
     return render_template("auto_answer.html", title="Анкета", data=data)
+
+
+@app.route('/member')
+def random_member():
+    with open('members.json') as f:
+        data = json.load(f)
+        item = random.choice(data['members'])
+        return render_template('member.html', title='Случайный участник', **item)
 
 
 if __name__ == '__main__':
